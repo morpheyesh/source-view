@@ -185,8 +185,12 @@ const DataSourceDetail = () => {
                 {dataSource.tables.map((table) => (
                   <TableRow key={table.id} className="cursor-pointer hover:bg-muted/50">
                     <TableCell>
-                      <div className="font-medium">{table.name}</div>
-                      <div className="text-sm text-muted-foreground">ID: {table.id}</div>
+                      <Link to={`/data-source/${dataSource.id}/table/${table.id}`} className="block">
+                        <div className="font-medium text-blue-600 hover:text-blue-800 hover:underline">
+                          {table.name}
+                        </div>
+                        <div className="text-sm text-muted-foreground">ID: {table.id}</div>
+                      </Link>
                     </TableCell>
                     <TableCell className="text-center">
                       {table.records.toLocaleString()}
